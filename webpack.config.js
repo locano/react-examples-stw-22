@@ -7,14 +7,14 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "bundle_sin_babel"),
+    path: path.resolve(__dirname, "bundle_react"),
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css"
     }),
     new HtmlWebpackPlugin({
-      template: "index.html"
+      template: "./src/index.html"
     })
   ],
   module: {
