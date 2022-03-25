@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack"
+    "start": "webpack-dev-server --mode development --hot --open"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,7 @@
   "dependencies": {
     "file-loader": "^6.2.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }

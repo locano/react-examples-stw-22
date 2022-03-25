@@ -1,5 +1,6 @@
 import React from "react";
 import "./todoApp.css";
+import TodoList from "./todoList";
 
 class TodoApp extends React.Component {
   // Component Constructor for TodoApp
@@ -15,10 +16,12 @@ class TodoApp extends React.Component {
     // // Handle change on data
     this.changeText = this.changeText.bind(this);
     this.addElement = this.addElement.bind(this);
+    this.deleteElement = this.deleteElement.bind(this);
   }
 
-  changeText($event) {
-    const newValue = $event.target.value;
+  changeText($eventInput) {
+    const newValue = $eventInput.target.value;
+    console.log(newValue);
     this.setState({ text: newValue });
   }
 
@@ -39,7 +42,26 @@ class TodoApp extends React.Component {
       text: "",
       tasks: newTasks,
     });
-    console.log(this.state)
+    console.log(this.state);
+  }
+
+  deleteElement(index) {
+    let updateTasks = this.state.tasks;
+    updateTasks.splice(index, 1);
+    console.log(index);
+    console.log(updateTasks);
+    this.setState({
+      text: "",
+      tasks: updateTasks,
+    });
+  }
+
+  componentDidMount() {
+    console.log("inicio");
+  }
+
+  componentDidUpdate() {
+    console.log("actualizar");
   }
 
   render() {
@@ -53,16 +75,17 @@ class TodoApp extends React.Component {
             value={this.state.text}
             onChange={this.changeText}
           ></input>
-          <button onClick={this.addElement}> Add new Task # {this.state.tasks.length + 1}</button>
+          <button onClick={this.addElement}>
+            {" "}
+            Add new Task # {this.state.tasks.length + 1}
+          </button>
         </form>
-        <ul>
-            {this.state.tasks.map(element => {
-               return <li>{element.text}</li>
-            })}            
-        </ul>
+        <TodoList tasks={this.state.tasks} deleteElement={this.deleteElement} />
       </>
     );
   }
 }
+
+
 
 export default TodoApp;
