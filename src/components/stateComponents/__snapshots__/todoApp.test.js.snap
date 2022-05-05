@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoApp Snapshot 1`] = `
+<DocumentFragment>
+  <h3>
+    Add new Task: 
+  </h3>
+  <form>
+    <label
+      data-testid="label-test"
+    >
+      What do you need?
+    </label>
+    <input
+      data-testid="input-test"
+      id="todo-input"
+      value=""
+    />
+    <button
+      data-testid="button-test"
+    >
+       Add new Task # 2
+    </button>
+  </form>
+  <ul>
+    <li>
+      new task
+    </li>
+  </ul>
+</DocumentFragment>
+`;

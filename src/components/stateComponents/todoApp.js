@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import './todoApp.css';
 import TodoList from './todoList';
@@ -9,7 +10,7 @@ class TodoApp extends React.Component {
 
     // New Variables for item and text
     this.state = {
-      tasks: [],
+      tasks: props.tasks ? props.tasks : [],
       text: '',
     };
 
@@ -69,13 +70,14 @@ class TodoApp extends React.Component {
       <>
         <h3>Add new Task: </h3>
         <form>
-          <label>What do you need?</label>
+          <label data-testid="label-test">What do you need?</label>
           <input
+            data-testid="input-test"
             id="todo-input"
             value={this.state.text}
             onChange={this.changeText}
           />
-          <button onClick={this.addElement}>
+          <button data-testid="button-test" onClick={this.addElement}>
             {' '}
             Add new Task #
             {' '}
