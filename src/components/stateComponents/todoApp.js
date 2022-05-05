@@ -1,6 +1,6 @@
-import React from "react";
-import "./todoApp.css";
-import TodoList from "./todoList";
+import React from 'react';
+import './todoApp.css';
+import TodoList from './todoList';
 
 class TodoApp extends React.Component {
   // Component Constructor for TodoApp
@@ -10,7 +10,7 @@ class TodoApp extends React.Component {
     // New Variables for item and text
     this.state = {
       tasks: [],
-      text: "",
+      text: '',
     };
 
     // // Handle change on data
@@ -36,32 +36,32 @@ class TodoApp extends React.Component {
       date: Date.now(),
     };
 
-    let newTasks = this.state.tasks;
+    const newTasks = this.state.tasks;
     newTasks.push(newItem);
     this.setState({
-      text: "",
+      text: '',
       tasks: newTasks,
     });
     console.log(this.state);
   }
 
   deleteElement(index) {
-    let updateTasks = this.state.tasks;
+    const updateTasks = this.state.tasks;
     updateTasks.splice(index, 1);
     console.log(index);
     console.log(updateTasks);
     this.setState({
-      text: "",
+      text: '',
       tasks: updateTasks,
     });
   }
 
   componentDidMount() {
-    console.log("inicio");
+    console.log('inicio');
   }
 
   componentDidUpdate() {
-    console.log("actualizar");
+    console.log('actualizar');
   }
 
   render() {
@@ -74,10 +74,12 @@ class TodoApp extends React.Component {
             id="todo-input"
             value={this.state.text}
             onChange={this.changeText}
-          ></input>
+          />
           <button onClick={this.addElement}>
-            {" "}
-            Add new Task # {this.state.tasks.length + 1}
+            {' '}
+            Add new Task #
+            {' '}
+            {this.state.tasks.length + 1}
           </button>
         </form>
         <TodoList tasks={this.state.tasks} deleteElement={this.deleteElement} />
@@ -85,7 +87,5 @@ class TodoApp extends React.Component {
     );
   }
 }
-
-
 
 export default TodoApp;

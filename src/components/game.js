@@ -1,45 +1,36 @@
-import React from "react";
+import React from 'react';
 
-import "./game.css"
+import './game.css';
+import Square from './square';
+
 class Board extends React.Component {
-  createSquare() {
-    return <Square />;
-  }
-
   render() {
-    const turn = "Next Player: ";
+    const turn = 'Next Player: ';
 
     return (
       <>
         <div className="turn">{turn}</div>
 
         <div className="row">
-          {<Square/>}
-          {this.createSquare()}
-          {this.createSquare()}
+          <Square />
+          <Square />
+          <Square />
         </div>
 
         <div className="row">
-          {this.createSquare()}
-          {this.createSquare()}
-          {this.createSquare()}
+          <Square />
+          <Square />
+          <Square />
         </div>
 
         <div className="row">
-          {this.createSquare()}
-          {this.createSquare()}
-          {this.createSquare()}
+          <Square />
+          <Square />
+          <Square />
         </div>
       </>
     );
   }
 }
-
-class Square extends React.Component {
-  render() {
-   return <button className="squareBtn" onClick={function(){ alert('click')}}>{/*DO SOMETHING*/}</button>;
-  }
-}
-
 
 export default Board;

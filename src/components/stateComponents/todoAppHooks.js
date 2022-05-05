@@ -1,39 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 export default function TodoAppHooks() {
   // Declara una nueva variable de estado, que llamaremos "count".
   const [tasks, setTasks] = useState([]);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   // Similar a componentDidMount y componentDidUpdate:
   useEffect(() => {
     // Actualiza el título del documento usando la Browser API
-    console.log("cambio");
+    console.log('cambio');
   });
 
   function addElement($event) {
     $event.preventDefault();
-    if (text.length == 0) {
+    if (text.length === 0) {
       return;
     }
 
     const newItem = {
-      text: text,
+      text,
       date: Date.now(),
     };
 
-    let newTasks = tasks;
+    const newTasks = tasks;
     newTasks.push(newItem);
     setText(text);
     setTasks([...newTasks]);
   }
 
   function deleteElement(index) {
-    let updateTasks = tasks;
+    const updateTasks = tasks;
     updateTasks.splice(index, 1);
     console.log(index);
     console.log(updateTasks);
-    setText("");
+    setText('');
     setTasks([...updateTasks]);
   }
   return (
@@ -45,22 +45,25 @@ export default function TodoAppHooks() {
           id="todo-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
-        ></input>
-        <button onClick={addElement}> Add new Task # {tasks.length + 1}</button>
+        />
+        <button onClick={addElement}>
+          {' '}
+          Add new Task #
+          {' '}
+          {tasks.length + 1}
+        </button>
       </form>
       <ul>
-        {tasks.map((element, index) => {
-          return (
-            <li
-              key={index}
-              onClick={() => {
-                deleteElement(index);
-              }}
-            >
-              {element.text}
-            </li>
-          );
-        })}
+        {tasks.map((element, index) => (
+          <li
+            key={index}
+            onClick={() => {
+              deleteElement(index);
+            }}
+          >
+            {element.text}
+          </li>
+        ))}
       </ul>
     </>
   );
