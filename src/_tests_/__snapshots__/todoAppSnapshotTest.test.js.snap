@@ -19,13 +19,24 @@ exports[`TodoApp Snapshot 1`] = `
     <button
       data-testid="button-test"
     >
-       Add new Task # 2
+      Add new Task #2
     </button>
   </form>
-  <ul>
-    <li>
-      new task
+  <ul
+    data-testid="ultest"
+  >
+    <li
+      data-testid="item-0"
+    >
+      new task 1
     </li>
   </ul>
 </DocumentFragment>
+`;
+
+exports[`TodoApp Snapshot RandomValues 1`] = `
+Object {
+  "date": Any<Date>,
+  "text": "new task 1",
+}
 `;

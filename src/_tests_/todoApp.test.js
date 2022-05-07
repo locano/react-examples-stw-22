@@ -4,9 +4,12 @@
 /* eslint-disable no-undef */
 import React from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
-import TodoApp from './todoApp';
+import TodoApp from '../components/stateComponents/todoApp';
 
 describe('TodoApp', () => {
+  beforeEach(() => {
+    document.body.innerHTML = "";
+  });
   it('Render Component', () => {
     render(<TodoApp />);
     const TodoElement = screen.getByTestId('input-test');
@@ -25,13 +28,4 @@ describe('TodoApp', () => {
     expect(TodoElement).toBeInTheDocument();
   });
 
-  it('Snapshot', () => {
-    const newItem = {
-      text: 'new task 1',
-      date: Date.now(),
-    };
-    const tasks = [newItem];
-    const { asFragment } = render(<TodoApp tasks={tasks} />);
-    expect(asFragment()).toMatchSnapshot();
-  });
 });

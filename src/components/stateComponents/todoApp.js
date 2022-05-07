@@ -78,9 +78,7 @@ class TodoApp extends React.Component {
             onChange={this.changeText}
           />
           <button data-testid="button-test" onClick={this.addElement}>
-            {' '}
-            Add new Task #
-            {' '}
+            Add new Task # 
             {this.state.tasks.length + 1}
           </button>
         </form>
